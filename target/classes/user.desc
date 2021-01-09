@@ -1,0 +1,15 @@
+
+÷
+
+user.proto"Ö
+User
+
+first_name (	R	firstName
+	last_name (	RlastName
+weight (Rweight
+address (	Raddress&
+hobby (2.User.HobbyEntryRhobby8
+
+HobbyEntry
+key (	Rkey
+value (	Rvalue:8BBRecordbproto3
