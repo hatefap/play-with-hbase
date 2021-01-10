@@ -1,5 +1,5 @@
 syntax = "proto2";
-
+package generate;
 option java_outer_classname = "Record";
 message User {
    required string first_name = 1;

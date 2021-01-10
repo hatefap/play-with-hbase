@@ -1,3 +1,4 @@
-/hdd/javaProject/play-with-hbase/src/main/java/User.java
+/hdd/javaProject/play-with-hbase/src/main/java/generate/RandomString.java
+/hdd/javaProject/play-with-hbase/src/main/java/generate/Record.java
+/hdd/javaProject/play-with-hbase/src/main/java/mapreduce/PlayWithHbase.java
 /hdd/javaProject/play-with-hbase/src/main/java/generate/UserData.java
-/hdd/javaProject/play-with-hbase/src/main/java/Main.java

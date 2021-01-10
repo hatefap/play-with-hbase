@@ -1,6 +1,9 @@
-Record$1.class
-Record$User$Builder.class
-Record$UserOrBuilder.class
-Record$User.class
-Record.class
-Record$User$1.class
+mapreduce/PlayWithHbase.class
+generate/Record$UserOrBuilder.class
+generate/Record$1.class
+mapreduce/PlayWithHbase$ParquetMap.class
+generate/Record.class
+generate/Record$User$Builder.class
+generate/Record$User$1.class
+generate/Record$User.class
+generate/RandomString.class

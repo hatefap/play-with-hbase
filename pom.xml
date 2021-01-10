@@ -64,6 +64,7 @@
 <build>
     <plugins>
 
+
         <plugin>
             <groupId>com.github.os72</groupId>
             <artifactId>protoc-jar-maven-plugin</artifactId>
@@ -84,7 +85,7 @@
                             <outputTarget>
                                 <type>java</type>
                                 <addSources>none</addSources>
-                                <outputDirectory>src/main/java/generate/</outputDirectory>
+                                <outputDirectory>src/main/java/</outputDirectory>
                             </outputTarget>
                             <outputTarget>
                                 <type>descriptor</type>
@@ -130,3 +131,4 @@
     </plugins>
 </build>
 </project>
+

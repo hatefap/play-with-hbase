@@ -30,7 +30,7 @@ public class UserData {
             return builder.build();
         };
         try (ParquetWriter<Record.User> writer = new ProtoParquetWriter<Record.User>(filePath, Record.User.class, CompressionCodecName.SNAPPY , 32*pageSize, pageSize)) {
-        for (int i = 0; i < 5_000; i++){
+        for (int i = 0; i < 10_000; i++){
                     writer.write(generator.get());
             }
         }

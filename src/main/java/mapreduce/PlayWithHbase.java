@@ -33,6 +33,10 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Objects;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 public class PlayWithHbase extends Configured implements Tool {
 
@@ -58,7 +62,6 @@ public class PlayWithHbase extends Configured implements Tool {
             final ImmutableBytesWritable HKey = new ImmutableBytesWritable(Bytes.toBytes(hbaseKey));
             Put row = new Put(Bytes.toBytes(hbaseKey));
             row.addColumn(Bytes.toBytes(COLUMN_FAMILY), Bytes.toBytes("weight"), Bytes.toBytes(hbaseWeight));
-            System.out.println(hbaseWeight);
             //row.addColumn(Bytes.toBytes(COLUMN_FAMILY), Bytes.toBytes("address"), Bytes.toBytes(firstAddress));
             context.write(HKey, row);
         }
@@ -98,7 +101,7 @@ public class PlayWithHbase extends Configured implements Tool {
                 .getPath();
         config.addResource(new Path(path));
         HBaseAdmin.checkHBaseAvailable(config);
-        return ConnectionFactory.createConnection(config);
+        return ConnectionFactory.createConnection(config, new ThreadPoolExecutor(1, 1, 120000, TimeUnit.HOURS, new LinkedBlockingQueue<Runnable>() ));
     }
 
     private void setupHbase(String tableName, String... columnFamilies) throws IOException, ServiceException {
@@ -146,7 +149,7 @@ public class PlayWithHbase extends Configured implements Tool {
         int result = job.waitForCompletion(true) ? 0 : 1;
         if(result == 0){
             LoadIncrementalHFiles loader = new LoadIncrementalHFiles(conf);
-            // loader.doBulkLoad(new Path(args[1]), );
+            loader.doBulkLoad(new Path(args[1]), admin, conn.getTable(TableName.valueOf(TABLE_NAME)), conn.getRegionLocator(TableName.valueOf(TABLE_NAME)));
         }
         return result;
     }
