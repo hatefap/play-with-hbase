@@ -27,10 +27,6 @@ public class UserData {
             address.add(RandomString.getAlphaNumericString(rand.nextInt(30) + 10));
             address.add(RandomString.getAlphaNumericString(rand.nextInt(30) + 10));
             builder.addAllAddress(address);
-            Map<String, String> hobby = new HashMap<>();
-            hobby.put("inhouse", RandomString.getAlphaNumericString(rand.nextInt(50) + 10));
-            hobby.put("out",  RandomString.getAlphaNumericString(rand.nextInt(50) + 10));
-            builder.putAllHobby(hobby);
             return builder.build();
         };
         try (ParquetWriter<Record.User> writer = new ProtoParquetWriter<Record.User>(filePath, Record.User.class, CompressionCodecName.SNAPPY , 32*pageSize, pageSize)) {

@@ -3,48 +3,57 @@ package generate;
 public final class Record {
   private Record() {}
   public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
-
-  public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface UserOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:User)
-      com.google.protobuf.MessageOrBuilder {
+  public interface UserOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
 
+    // required string first_name = 1;
     /**
-     * <code>string first_name = 1;</code>
+     * <code>required string first_name = 1;</code>
+     */
+    boolean hasFirstName();
+    /**
+     * <code>required string first_name = 1;</code>
      */
     java.lang.String getFirstName();
     /**
-     * <code>string first_name = 1;</code>
+     * <code>required string first_name = 1;</code>
      */
     com.google.protobuf.ByteString
         getFirstNameBytes();
 
+    // required string last_name = 2;
     /**
-     * <code>string last_name = 2;</code>
+     * <code>required string last_name = 2;</code>
+     */
+    boolean hasLastName();
+    /**
+     * <code>required string last_name = 2;</code>
      */
     java.lang.String getLastName();
     /**
-     * <code>string last_name = 2;</code>
+     * <code>required string last_name = 2;</code>
      */
     com.google.protobuf.ByteString
         getLastNameBytes();
 
+    // required int32 weight = 3;
     /**
-     * <code>int32 weight = 3;</code>
+     * <code>required int32 weight = 3;</code>
+     */
+    boolean hasWeight();
+    /**
+     * <code>required int32 weight = 3;</code>
      */
     int getWeight();
 
+    // repeated string address = 4;
     /**
      * <code>repeated string address = 4;</code>
      */
     java.util.List<java.lang.String>
-        getAddressList();
+    getAddressList();
     /**
      * <code>repeated string address = 4;</code>
      */
@@ -58,73 +67,40 @@ public final class Record {
      */
     com.google.protobuf.ByteString
         getAddressBytes(int index);
-
-    /**
-     * <code>map&lt;string, string&gt; hobby = 5;</code>
-     */
-    int getHobbyCount();
-    /**
-     * <code>map&lt;string, string&gt; hobby = 5;</code>
-     */
-    boolean containsHobby(
-        java.lang.String key);
-    /**
-     * Use {@link #getHobbyMap()} instead.
-     */
-    @java.lang.Deprecated
-    java.util.Map<java.lang.String, java.lang.String>
-    getHobby();
-    /**
-     * <code>map&lt;string, string&gt; hobby = 5;</code>
-     */
-    java.util.Map<java.lang.String, java.lang.String>
-    getHobbyMap();
-    /**
-     * <code>map&lt;string, string&gt; hobby = 5;</code>
-     */
-
-    java.lang.String getHobbyOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue);
-    /**
-     * <code>map&lt;string, string&gt; hobby = 5;</code>
-     */
-
-    java.lang.String getHobbyOrThrow(
-        java.lang.String key);
   }
   /**
    * Protobuf type {@code User}
    */
-  public  static final class User extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:User)
-      UserOrBuilder {
-  private static final long serialVersionUID = 0L;
+  public static final class User extends
+      com.google.protobuf.GeneratedMessage
+      implements UserOrBuilder {
     // Use User.newBuilder() to construct.
-    private User(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    private User(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      this.unknownFields = builder.getUnknownFields();
     }
-    private User() {
-      firstName_ = "";
-      lastName_ = "";
-      weight_ = 0;
-      address_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private User(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final User defaultInstance;
+    public static User getDefaultInstance() {
+      return defaultInstance;
     }
 
+    public User getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
     @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
+        getUnknownFields() {
       return this.unknownFields;
     }
     private User(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
+      initFields();
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -136,50 +112,34 @@ public final class Record {
             case 0:
               done = true;
               break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
             case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              firstName_ = s;
+              bitField0_ |= 0x00000001;
+              firstName_ = input.readBytes();
               break;
             }
             case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              lastName_ = s;
+              bitField0_ |= 0x00000002;
+              lastName_ = input.readBytes();
               break;
             }
             case 24: {
-
+              bitField0_ |= 0x00000004;
               weight_ = input.readInt32();
               break;
             }
             case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
                 address_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000008;
               }
-              address_.add(s);
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
-                hobby_ = com.google.protobuf.MapField.newMapField(
-                    HobbyDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000010;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              hobby__ = input.readMessage(
-                  HobbyDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              hobby_.getMutableMap().put(
-                  hobby__.getKey(), hobby__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
+              address_.add(input.readBytes());
               break;
             }
           }
@@ -188,10 +148,10 @@ public final class Record {
         throw e.setUnfinishedMessage(this);
       } catch (java.io.IOException e) {
         throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
+            e.getMessage()).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          address_ = address_.getUnmodifiableView();
+          address_ = new com.google.protobuf.UnmodifiableLazyStringList(address_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -202,31 +162,40 @@ public final class Record {
       return Record.internal_static_User_descriptor;
     }
 
-    @SuppressWarnings({"rawtypes"})
-    @java.lang.Override
-    protected com.google.protobuf.MapField internalGetMapField(
-        int number) {
-      switch (number) {
-        case 5:
-          return internalGetHobby();
-        default:
-          throw new RuntimeException(
-              "Invalid map field number: " + number);
-      }
-    }
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return Record.internal_static_User_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               Record.User.class, Record.User.Builder.class);
     }
 
+    public static com.google.protobuf.Parser<User> PARSER =
+        new com.google.protobuf.AbstractParser<User>() {
+      public User parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new User(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<User> getParserForType() {
+      return PARSER;
+    }
+
     private int bitField0_;
+    // required string first_name = 1;
     public static final int FIRST_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object firstName_;
+    private java.lang.Object firstName_;
     /**
-     * <code>string first_name = 1;</code>
+     * <code>required string first_name = 1;</code>
+     */
+    public boolean hasFirstName() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string first_name = 1;</code>
      */
     public java.lang.String getFirstName() {
       java.lang.Object ref = firstName_;
@@ -236,12 +205,14 @@ public final class Record {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        firstName_ = s;
+        if (bs.isValidUtf8()) {
+          firstName_ = s;
+        }
         return s;
       }
     }
     /**
-     * <code>string first_name = 1;</code>
+     * <code>required string first_name = 1;</code>
      */
     public com.google.protobuf.ByteString
         getFirstNameBytes() {
@@ -257,10 +228,17 @@ public final class Record {
       }
     }
 
+    // required string last_name = 2;
     public static final int LAST_NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object lastName_;
+    private java.lang.Object lastName_;
     /**
-     * <code>string last_name = 2;</code>
+     * <code>required string last_name = 2;</code>
+     */
+    public boolean hasLastName() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string last_name = 2;</code>
      */
     public java.lang.String getLastName() {
       java.lang.Object ref = lastName_;
@@ -270,12 +248,14 @@ public final class Record {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        lastName_ = s;
+        if (bs.isValidUtf8()) {
+          lastName_ = s;
+        }
         return s;
       }
     }
     /**
-     * <code>string last_name = 2;</code>
+     * <code>required string last_name = 2;</code>
      */
     public com.google.protobuf.ByteString
         getLastNameBytes() {
@@ -291,21 +271,29 @@ public final class Record {
       }
     }
 
+    // required int32 weight = 3;
     public static final int WEIGHT_FIELD_NUMBER = 3;
     private int weight_;
     /**
-     * <code>int32 weight = 3;</code>
+     * <code>required int32 weight = 3;</code>
+     */
+    public boolean hasWeight() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int32 weight = 3;</code>
      */
     public int getWeight() {
       return weight_;
     }
 
+    // repeated string address = 4;
     public static final int ADDRESS_FIELD_NUMBER = 4;
     private com.google.protobuf.LazyStringList address_;
     /**
      * <code>repeated string address = 4;</code>
      */
-    public com.google.protobuf.ProtocolStringList
+    public java.util.List<java.lang.String>
         getAddressList() {
       return address_;
     }
@@ -329,218 +317,90 @@ public final class Record {
       return address_.getByteString(index);
     }
 
-    public static final int HOBBY_FIELD_NUMBER = 5;
-    private static final class HobbyDefaultEntryHolder {
-      static final com.google.protobuf.MapEntry<
-          java.lang.String, java.lang.String> defaultEntry =
-              com.google.protobuf.MapEntry
-              .<java.lang.String, java.lang.String>newDefaultInstance(
-                  Record.internal_static_User_HobbyEntry_descriptor, 
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "",
-                  com.google.protobuf.WireFormat.FieldType.STRING,
-                  "");
+    private void initFields() {
+      firstName_ = "";
+      lastName_ = "";
+      weight_ = 0;
+      address_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
-    private com.google.protobuf.MapField<
-        java.lang.String, java.lang.String> hobby_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetHobby() {
-      if (hobby_ == null) {
-        return com.google.protobuf.MapField.emptyMapField(
-            HobbyDefaultEntryHolder.defaultEntry);
-      }
-      return hobby_;
-    }
-
-    public int getHobbyCount() {
-      return internalGetHobby().getMap().size();
-    }
-    /**
-     * <code>map&lt;string, string&gt; hobby = 5;</code>
-     */
-
-    public boolean containsHobby(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      return internalGetHobby().getMap().containsKey(key);
-    }
-    /**
-     * Use {@link #getHobbyMap()} instead.
-     */
-    @java.lang.Deprecated
-    public java.util.Map<java.lang.String, java.lang.String> getHobby() {
-      return getHobbyMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; hobby = 5;</code>
-     */
-
-    public java.util.Map<java.lang.String, java.lang.String> getHobbyMap() {
-      return internalGetHobby().getMap();
-    }
-    /**
-     * <code>map&lt;string, string&gt; hobby = 5;</code>
-     */
-
-    public java.lang.String getHobbyOrDefault(
-        java.lang.String key,
-        java.lang.String defaultValue) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetHobby().getMap();
-      return map.containsKey(key) ? map.get(key) : defaultValue;
-    }
-    /**
-     * <code>map&lt;string, string&gt; hobby = 5;</code>
-     */
-
-    public java.lang.String getHobbyOrThrow(
-        java.lang.String key) {
-      if (key == null) { throw new java.lang.NullPointerException(); }
-      java.util.Map<java.lang.String, java.lang.String> map =
-          internalGetHobby().getMap();
-      if (!map.containsKey(key)) {
-        throw new java.lang.IllegalArgumentException();
-      }
-      return map.get(key);
-    }
-
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
+      if (isInitialized != -1) return isInitialized == 1;
 
+      if (!hasFirstName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasLastName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasWeight()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
 
-    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getFirstNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, firstName_);
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getFirstNameBytes());
       }
-      if (!getLastNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, lastName_);
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeBytes(2, getLastNameBytes());
       }
-      if (weight_ != 0) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt32(3, weight_);
       }
       for (int i = 0; i < address_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, address_.getRaw(i));
+        output.writeBytes(4, address_.getByteString(i));
       }
-      com.google.protobuf.GeneratedMessageV3
-        .serializeStringMapTo(
-          output,
-          internalGetHobby(),
-          HobbyDefaultEntryHolder.defaultEntry,
-          5);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
-    @java.lang.Override
+    private int memoizedSerializedSize = -1;
     public int getSerializedSize() {
-      int size = memoizedSize;
+      int size = memoizedSerializedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (!getFirstNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, firstName_);
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getFirstNameBytes());
       }
-      if (!getLastNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, lastName_);
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, getLastNameBytes());
       }
-      if (weight_ != 0) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, weight_);
       }
       {
         int dataSize = 0;
         for (int i = 0; i < address_.size(); i++) {
-          dataSize += computeStringSizeNoTag(address_.getRaw(i));
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(address_.getByteString(i));
         }
         size += dataSize;
         size += 1 * getAddressList().size();
       }
-      for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
-           : internalGetHobby().getMap().entrySet()) {
-        com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-        hobby__ = HobbyDefaultEntryHolder.defaultEntry.newBuilderForType()
-            .setKey(entry.getKey())
-            .setValue(entry.getValue())
-            .build();
-        size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(5, hobby__);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
       return size;
     }
 
+    private static final long serialVersionUID = 0L;
     @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof Record.User)) {
-        return super.equals(obj);
-      }
-      Record.User other = (Record.User) obj;
-
-      boolean result = true;
-      result = result && getFirstName()
-          .equals(other.getFirstName());
-      result = result && getLastName()
-          .equals(other.getLastName());
-      result = result && (getWeight()
-          == other.getWeight());
-      result = result && getAddressList()
-          .equals(other.getAddressList());
-      result = result && internalGetHobby().equals(
-          other.internalGetHobby());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
     }
 
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + FIRST_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getFirstName().hashCode();
-      hash = (37 * hash) + LAST_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getLastName().hashCode();
-      hash = (37 * hash) + WEIGHT_FIELD_NUMBER;
-      hash = (53 * hash) + getWeight();
-      if (getAddressCount() > 0) {
-        hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
-        hash = (53 * hash) + getAddressList().hashCode();
-      }
-      if (!internalGetHobby().getMap().isEmpty()) {
-        hash = (37 * hash) + HOBBY_FIELD_NUMBER;
-        hash = (53 * hash) + internalGetHobby().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static Record.User parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static Record.User parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
     public static Record.User parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -564,59 +424,46 @@ public final class Record {
     }
     public static Record.User parseFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return PARSER.parseFrom(input);
     }
     public static Record.User parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return PARSER.parseFrom(input, extensionRegistry);
     }
     public static Record.User parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
+      return PARSER.parseDelimitedFrom(input);
     }
     public static Record.User parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
     public static Record.User parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
+      return PARSER.parseFrom(input);
     }
     public static Record.User parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
+      return PARSER.parseFrom(input, extensionRegistry);
     }
 
-    @java.lang.Override
+    public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
     public static Builder newBuilder(Record.User prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      return newBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
+    public Builder toBuilder() { return newBuilder(this); }
 
     @java.lang.Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -624,38 +471,14 @@ public final class Record {
      * Protobuf type {@code User}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:User)
-        Record.UserOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements Record.UserOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return Record.internal_static_User_descriptor;
       }
 
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMapField(
-          int number) {
-        switch (number) {
-          case 5:
-            return internalGetHobby();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @SuppressWarnings({"rawtypes"})
-      protected com.google.protobuf.MapField internalGetMutableMapField(
-          int number) {
-        switch (number) {
-          case 5:
-            return internalGetMutableHobby();
-          default:
-            throw new RuntimeException(
-                "Invalid map field number: " + number);
-        }
-      }
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return Record.internal_static_User_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
@@ -668,42 +491,44 @@ public final class Record {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
         }
       }
-      @java.lang.Override
+      private static Builder create() {
+        return new Builder();
+      }
+
       public Builder clear() {
         super.clear();
         firstName_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         lastName_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         weight_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         address_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000008);
-        internalGetMutableHobby().clear();
         return this;
       }
 
-      @java.lang.Override
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return Record.internal_static_User_descriptor;
       }
 
-      @java.lang.Override
       public Record.User getDefaultInstanceForType() {
         return Record.User.getDefaultInstance();
       }
 
-      @java.lang.Override
       public Record.User build() {
         Record.User result = buildPartial();
         if (!result.isInitialized()) {
@@ -712,59 +537,33 @@ public final class Record {
         return result;
       }
 
-      @java.lang.Override
       public Record.User buildPartial() {
         Record.User result = new Record.User(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.firstName_ = firstName_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.lastName_ = lastName_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
         result.weight_ = weight_;
         if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          address_ = address_.getUnmodifiableView();
+          address_ = new com.google.protobuf.UnmodifiableLazyStringList(
+              address_);
           bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.address_ = address_;
-        result.hobby_ = internalGetHobby();
-        result.hobby_.makeImmutable();
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof Record.User) {
           return mergeFrom((Record.User)other);
@@ -776,15 +575,17 @@ public final class Record {
 
       public Builder mergeFrom(Record.User other) {
         if (other == Record.User.getDefaultInstance()) return this;
-        if (!other.getFirstName().isEmpty()) {
+        if (other.hasFirstName()) {
+          bitField0_ |= 0x00000001;
           firstName_ = other.firstName_;
           onChanged();
         }
-        if (!other.getLastName().isEmpty()) {
+        if (other.hasLastName()) {
+          bitField0_ |= 0x00000002;
           lastName_ = other.lastName_;
           onChanged();
         }
-        if (other.getWeight() != 0) {
+        if (other.hasWeight()) {
           setWeight(other.getWeight());
         }
         if (!other.address_.isEmpty()) {
@@ -797,19 +598,26 @@ public final class Record {
           }
           onChanged();
         }
-        internalGetMutableHobby().mergeFrom(
-            other.internalGetHobby());
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
+        this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
-      @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasFirstName()) {
+          
+          return false;
+        }
+        if (!hasLastName()) {
+          
+          return false;
+        }
+        if (!hasWeight()) {
+          
+          return false;
+        }
         return true;
       }
 
-      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -819,7 +627,7 @@ public final class Record {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
           parsedMessage = (Record.User) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
+          throw e;
         } finally {
           if (parsedMessage != null) {
             mergeFrom(parsedMessage);
@@ -829,16 +637,22 @@ public final class Record {
       }
       private int bitField0_;
 
+      // required string first_name = 1;
       private java.lang.Object firstName_ = "";
       /**
-       * <code>string first_name = 1;</code>
+       * <code>required string first_name = 1;</code>
+       */
+      public boolean hasFirstName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string first_name = 1;</code>
        */
       public java.lang.String getFirstName() {
         java.lang.Object ref = firstName_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           firstName_ = s;
           return s;
         } else {
@@ -846,7 +660,7 @@ public final class Record {
         }
       }
       /**
-       * <code>string first_name = 1;</code>
+       * <code>required string first_name = 1;</code>
        */
       public com.google.protobuf.ByteString
           getFirstNameBytes() {
@@ -862,52 +676,57 @@ public final class Record {
         }
       }
       /**
-       * <code>string first_name = 1;</code>
+       * <code>required string first_name = 1;</code>
        */
       public Builder setFirstName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000001;
         firstName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string first_name = 1;</code>
+       * <code>required string first_name = 1;</code>
        */
       public Builder clearFirstName() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         firstName_ = getDefaultInstance().getFirstName();
         onChanged();
         return this;
       }
       /**
-       * <code>string first_name = 1;</code>
+       * <code>required string first_name = 1;</code>
        */
       public Builder setFirstNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        
+  bitField0_ |= 0x00000001;
         firstName_ = value;
         onChanged();
         return this;
       }
 
+      // required string last_name = 2;
       private java.lang.Object lastName_ = "";
       /**
-       * <code>string last_name = 2;</code>
+       * <code>required string last_name = 2;</code>
+       */
+      public boolean hasLastName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string last_name = 2;</code>
        */
       public java.lang.String getLastName() {
         java.lang.Object ref = lastName_;
         if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
           lastName_ = s;
           return s;
         } else {
@@ -915,7 +734,7 @@ public final class Record {
         }
       }
       /**
-       * <code>string last_name = 2;</code>
+       * <code>required string last_name = 2;</code>
        */
       public com.google.protobuf.ByteString
           getLastNameBytes() {
@@ -931,68 +750,75 @@ public final class Record {
         }
       }
       /**
-       * <code>string last_name = 2;</code>
+       * <code>required string last_name = 2;</code>
        */
       public Builder setLastName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000002;
         lastName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string last_name = 2;</code>
+       * <code>required string last_name = 2;</code>
        */
       public Builder clearLastName() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         lastName_ = getDefaultInstance().getLastName();
         onChanged();
         return this;
       }
       /**
-       * <code>string last_name = 2;</code>
+       * <code>required string last_name = 2;</code>
        */
       public Builder setLastNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        
+  bitField0_ |= 0x00000002;
         lastName_ = value;
         onChanged();
         return this;
       }
 
+      // required int32 weight = 3;
       private int weight_ ;
       /**
-       * <code>int32 weight = 3;</code>
+       * <code>required int32 weight = 3;</code>
+       */
+      public boolean hasWeight() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int32 weight = 3;</code>
        */
       public int getWeight() {
         return weight_;
       }
       /**
-       * <code>int32 weight = 3;</code>
+       * <code>required int32 weight = 3;</code>
        */
       public Builder setWeight(int value) {
-        
+        bitField0_ |= 0x00000004;
         weight_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 weight = 3;</code>
+       * <code>required int32 weight = 3;</code>
        */
       public Builder clearWeight() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         weight_ = 0;
         onChanged();
         return this;
       }
 
+      // repeated string address = 4;
       private com.google.protobuf.LazyStringList address_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureAddressIsMutable() {
         if (!((bitField0_ & 0x00000008) == 0x00000008)) {
@@ -1003,9 +829,9 @@ public final class Record {
       /**
        * <code>repeated string address = 4;</code>
        */
-      public com.google.protobuf.ProtocolStringList
+      public java.util.List<java.lang.String>
           getAddressList() {
-        return address_.getUnmodifiableView();
+        return java.util.Collections.unmodifiableList(address_);
       }
       /**
        * <code>repeated string address = 4;</code>
@@ -1058,8 +884,7 @@ public final class Record {
       public Builder addAllAddress(
           java.lang.Iterable<java.lang.String> values) {
         ensureAddressIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, address_);
+        super.addAll(values, address_);
         onChanged();
         return this;
       }
@@ -1080,237 +905,59 @@ public final class Record {
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        ensureAddressIsMutable();
+  ensureAddressIsMutable();
         address_.add(value);
         onChanged();
         return this;
       }
 
-      private com.google.protobuf.MapField<
-          java.lang.String, java.lang.String> hobby_;
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetHobby() {
-        if (hobby_ == null) {
-          return com.google.protobuf.MapField.emptyMapField(
-              HobbyDefaultEntryHolder.defaultEntry);
-        }
-        return hobby_;
-      }
-      private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableHobby() {
-        onChanged();;
-        if (hobby_ == null) {
-          hobby_ = com.google.protobuf.MapField.newMapField(
-              HobbyDefaultEntryHolder.defaultEntry);
-        }
-        if (!hobby_.isMutable()) {
-          hobby_ = hobby_.copy();
-        }
-        return hobby_;
-      }
-
-      public int getHobbyCount() {
-        return internalGetHobby().getMap().size();
-      }
-      /**
-       * <code>map&lt;string, string&gt; hobby = 5;</code>
-       */
-
-      public boolean containsHobby(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        return internalGetHobby().getMap().containsKey(key);
-      }
-      /**
-       * Use {@link #getHobbyMap()} instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String> getHobby() {
-        return getHobbyMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; hobby = 5;</code>
-       */
-
-      public java.util.Map<java.lang.String, java.lang.String> getHobbyMap() {
-        return internalGetHobby().getMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; hobby = 5;</code>
-       */
-
-      public java.lang.String getHobbyOrDefault(
-          java.lang.String key,
-          java.lang.String defaultValue) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetHobby().getMap();
-        return map.containsKey(key) ? map.get(key) : defaultValue;
-      }
-      /**
-       * <code>map&lt;string, string&gt; hobby = 5;</code>
-       */
-
-      public java.lang.String getHobbyOrThrow(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        java.util.Map<java.lang.String, java.lang.String> map =
-            internalGetHobby().getMap();
-        if (!map.containsKey(key)) {
-          throw new java.lang.IllegalArgumentException();
-        }
-        return map.get(key);
-      }
-
-      public Builder clearHobby() {
-        internalGetMutableHobby().getMutableMap()
-            .clear();
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; hobby = 5;</code>
-       */
-
-      public Builder removeHobby(
-          java.lang.String key) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableHobby().getMutableMap()
-            .remove(key);
-        return this;
-      }
-      /**
-       * Use alternate mutation accessors instead.
-       */
-      @java.lang.Deprecated
-      public java.util.Map<java.lang.String, java.lang.String>
-      getMutableHobby() {
-        return internalGetMutableHobby().getMutableMap();
-      }
-      /**
-       * <code>map&lt;string, string&gt; hobby = 5;</code>
-       */
-      public Builder putHobby(
-          java.lang.String key,
-          java.lang.String value) {
-        if (key == null) { throw new java.lang.NullPointerException(); }
-        if (value == null) { throw new java.lang.NullPointerException(); }
-        internalGetMutableHobby().getMutableMap()
-            .put(key, value);
-        return this;
-      }
-      /**
-       * <code>map&lt;string, string&gt; hobby = 5;</code>
-       */
-
-      public Builder putAllHobby(
-          java.util.Map<java.lang.String, java.lang.String> values) {
-        internalGetMutableHobby().getMutableMap()
-            .putAll(values);
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
       // @@protoc_insertion_point(builder_scope:User)
     }
 
-    // @@protoc_insertion_point(class_scope:User)
-    private static final Record.User DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Record.User();
+      defaultInstance = new User(true);
+      defaultInstance.initFields();
     }
 
-    public static Record.User getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<User>
-        PARSER = new com.google.protobuf.AbstractParser<User>() {
-      @java.lang.Override
-      public User parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new User(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<User> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<User> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public Record.User getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
+    // @@protoc_insertion_point(class_scope:User)
   }
 
-  private static final com.google.protobuf.Descriptors.Descriptor
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_User_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_User_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_User_HobbyEntry_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_User_HobbyEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
     return descriptor;
   }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
+  private static com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nuser.proto\"\235\001\n\004User\022\022\n\nfirst_name\030\001 \001(" +
-      "\t\022\021\n\tlast_name\030\002 \001(\t\022\016\n\006weight\030\003 \001(\005\022\017\n\007" +
-      "address\030\004 \003(\t\022\037\n\005hobby\030\005 \003(\0132\020.User.Hobb" +
-      "yEntry\032,\n\nHobbyEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val" +
-      "ue\030\002 \001(\t:\0028\001B\010B\006Recordb\006proto3"
+      "\n\nuser.proto\"N\n\004User\022\022\n\nfirst_name\030\001 \002(\t" +
+      "\022\021\n\tlast_name\030\002 \002(\t\022\016\n\006weight\030\003 \002(\005\022\017\n\007a" +
+      "ddress\030\004 \003(\tB\010B\006Record"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
+      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
+        public com.google.protobuf.ExtensionRegistry assignDescriptors(
+            com.google.protobuf.Descriptors.FileDescriptor root) {
+          descriptor = root;
+          internal_static_User_descriptor =
+            getDescriptor().getMessageTypes().get(0);
+          internal_static_User_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_User_descriptor,
+              new java.lang.String[] { "FirstName", "LastName", "Weight", "Address", });
+          return null;
+        }
+      };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_User_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_User_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_User_descriptor,
-        new java.lang.String[] { "FirstName", "LastName", "Weight", "Address", "Hobby", });
-    internal_static_User_HobbyEntry_descriptor =
-      internal_static_User_descriptor.getNestedTypes().get(0);
-    internal_static_User_HobbyEntry_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_User_HobbyEntry_descriptor,
-        new java.lang.String[] { "Key", "Value", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
